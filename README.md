@@ -1,2 +1,1 @@
-# CodeBrain-frontend
-Frontend CodeBrain app
+# Kiwi frontend app
