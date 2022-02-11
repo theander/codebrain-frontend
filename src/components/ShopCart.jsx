@@ -25,10 +25,11 @@ const ShopCart = () => {
                                 </div>
                                 <div className="card-body">
                                     <p>Quantidade:</p>
-                                    <div className="input-group">
-                                        <p>+</p>
+                                    <div className="input-group col-sm">
+                                        
+                                        <button className="btn btn-success btn-sm">-</button>    
                                         <input type="number" aria-label="First name" class="form-control" />
-                                        <p>-</p>
+                                        <button className="btn btn-success btn-sm">+</button>  
                                     </div>
                                     <button className="btn btn-light btn-sm">Remover</button>
                                 </div>
@@ -39,27 +40,26 @@ const ShopCart = () => {
             })
             }
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Launch static backdrop modal
+                Checkout
             </button>
 
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                            <h2 class="modal-title" id="staticBackdropLabel">Resume</h2>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <ul>
-{prop.map(produto=>{return(<li>Produto {produto.name} Valor:R$ {produto.price}</li>)})}
+                                {prop.map(produto => { return (<li>Produto {produto.name} Valor:R$ {produto.price}</li>) })}
 
 
                             </ul>
-
+<h2>Total:R$523,25</h2>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
+                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
                         </div>
                     </div>
                 </div>
