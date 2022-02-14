@@ -3,7 +3,8 @@ import * as types from "../../actions/action"
 import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { current } from "@reduxjs/toolkit"
+import axios from "axios";
+
 const ResumeCheckout = () => {
     const shopCart = useSelector(state => state.shopCartReducer)
     const [value, setValue] = useState(0);
@@ -21,11 +22,16 @@ const ResumeCheckout = () => {
         setValue(vTotal);
     }, [shopCart, value]);
 
-  
-
     const cleanCart = () => {
+        saveSale();
+
         store.dispatch({ type: types.CLEAN_CART });
         return navigate("/shop");
+    }
+
+    const saveSale = () => {
+        axios.post('https://codebrain-backend.herokuapp.com/api/nova-venda', { quantidadeTotal: qTotal, valorTotal: vTotal })
+            .then(response => console.log(response));
     }
 
 
@@ -59,7 +65,8 @@ const ResumeCheckout = () => {
                             </div>
                         </div>
                     </div>
-                </div></div>}
+                </div>
+            </div>}
         </div>
 
     )
