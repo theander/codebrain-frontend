@@ -7,7 +7,7 @@ export const addToCartAction = (product) => {
             Nome: product.nome,
             Price: product.preco,
             Image: product.image
-            
+
         }
     }
 }
@@ -29,5 +29,10 @@ export const cleanCartAction = (payload) => {
     }
 }
 
+export const filterProducts = (filter) => {
+    return {
+        type: types.FILTER_PRODUCTS, payload: filter
+    }
+}
 
 

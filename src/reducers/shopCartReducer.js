@@ -5,7 +5,22 @@ const shopCartReducer = (state = [], action) => {
 
     switch (action.type) {
         case types.ADD_TO_CART:
-            console.log(action.payload)
+
+            const itemInList = state.find((item) => {
+                return item.Id === action.payload.Id
+
+            })
+           
+            if (itemInList) {
+                state.map((item, index) => {
+                    if (item.Id === itemInList.Id) {
+                        state[index].Qtd += Number(action.payload.Qtd)
+                        return state
+                    }
+                }) 
+                return state
+            }
+
             return [...state, action.payload]
         case types.CLEAN_CART:
 

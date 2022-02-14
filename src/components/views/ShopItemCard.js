@@ -15,13 +15,6 @@ const ShopItem = (props) => {
         setQuantity(event.target.value)
     }
     const addToCart = (event) => {
-
-        const { id } = event.target
-
-        // const [prod] = listaProdutos.filter((x) => {
-        //      return Number(x.id) === Number(id);
-        //  })
-
         const product = {
             Id: prod.id,
             Name: prod.nome,
@@ -33,24 +26,21 @@ const ShopItem = (props) => {
     }
 
 
-    return (<div key={prod.id} className="container">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-10">
-            <div  className="card g-10" style={{ "width": "10rem" }}>
-                <img src={prod.image} className="card-img-top" alt=".."></img>
-                <div className="card-body">
-                    <p className="card-text">{prod.nome}</p>
-                    <p className="card-text">{prod.preco}</p>
+    return (
 
-                </div>
-                <div className="card-body">
-                </div>
+        <div key={prod.id} className="card" style={{ "width": "10rem" }}>
+            <img src={prod.image} className="card-img-top" alt=".."></img>
+            <div className="card-body">
+                <p className="card-text">{prod.nome}</p>
+                <p className="card-text">R${prod.preco}</p>
                 <p className="card-text"><input style={{ "width": "8rem" }} onChange={handleQuantity} type="number" value={quantity} min="1" /></p>
-                <a className="btn btn-primary"
+                <a className="btn btn-primary" style={{ "width": "8rem" }} 
                     id={prod.id}
                     onClick={addToCart}>Comprar</a>
             </div>
-        </div>
-    </div>)
+        
+</div>
+    )
 }
 
 export default ShopItem;
