@@ -26,7 +26,6 @@ const ShopCart = () => {
                                 <div className="card-body">
                                     <p>Quantidade:</p>
                                     <div className="input-group col-sm">
-                                        
                                         <button className="btn btn-success btn-sm">-</button>    
                                         <input type="number" aria-label="First name" class="form-control" />
                                         <button className="btn btn-success btn-sm">+</button>  
