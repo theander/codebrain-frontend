@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
-import counter from './counter'
+import shopCartReducer from './shopCartReducer'
+import shopReducer from './shopReducer';
 
 const reducer = combineReducers({
-  todos,
-  counter
+  shopCartReducer,shopReducer
 })
 
 export default reducer;
