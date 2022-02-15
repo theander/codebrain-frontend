@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Column } from '@ant-design/plots';
 
-const SaleGraph = () => {
+const SaleGraph = (props) => {
+const data1 = props.dados;
+
+const data=[];
+data1.map(item=>data.push({action:item.id,pv:item.valorTotal}))
+/*
   const data = [
     {
-      action: '浏览网站',
+      action: '',
       pv: 50000,
     },
     {
@@ -24,7 +29,7 @@ const SaleGraph = () => {
       action: '完成交易',
       pv: 8500,
     },
-  ];
+  ];*/
   const config = {
     data,
     xField: 'action',
@@ -40,5 +45,5 @@ const SaleGraph = () => {
   return <Column {...config} />;
 };
 
-expor default SaleGraph;
+export default SaleGraph;
 

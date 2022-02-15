@@ -70,7 +70,7 @@ const Shop = () => {
                 {filterOption !== "Filter" ? <li>
                     <div className="row">
                         <div className="container">
-                            <input type={filterOption === 'id' ? "number" : "text"} onChange={handleFilterValue} value={filter} min="1"/>
+                            <input type={filterOption === 'id' ? "number" : "text"} onChange={handleFilterValue} value={filter} min="1" />
 
                         </div>
                     </div>
@@ -80,26 +80,26 @@ const Shop = () => {
 
 
             <div className="container">
-            <div className="card-group gap-2">
-                {listaProdutos.length === 0 ? <h1>Loading...</h1> :
-                    listaProdutos.filter((items) => {
-                        if (filterOption === 'id') {
-                            return items.id === Number(filter)
+                <div className="card-group gap-2">
+                    {listaProdutos.length === 0 ? <h1>Loading...</h1> :
+                        listaProdutos.filter((items) => {
+                            if (filterOption === 'id') {
+                                return items.id === Number(filter)
+                            }
+                            else if (filterOption === 'name') {
+                                return items.nome.includes(filter)
+                            } else { return items }
                         }
-                        else if (filterOption === 'name') {
-                            return items.nome.includes(filter)
-                        } else { return items }
-                    }
 
-                    ).map(item => {
-                        return (
-                            <div>
-                                <ShopItem shopItem={item} />
-                            </div>
-                        )
-                    })
-                }
-</div>
+                        ).map(item => {
+                            return (
+                                <div>
+                                    <ShopItem shopItem={item} />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
         </div>)
 }
